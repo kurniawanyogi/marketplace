@@ -1,5 +1,6 @@
 package com.tokodia.marketplace.user.controller;
 
+import com.tokodia.marketplace.general.response.BaseResponse;
 import com.tokodia.marketplace.user.domain.RegistrationRequest;
 import com.tokodia.marketplace.user.entity.User;
 import com.tokodia.marketplace.user.service.RegistrationService;
@@ -18,9 +19,9 @@ public class UserController {
 
     final RegistrationService registrationService;
 
-    @PostMapping("/registration")
+    @PostMapping("/registration/customer")
     public ResponseEntity registration(@RequestBody RegistrationRequest request) {
         User user = registrationService.customerRegistration(request);
-        return new ResponseEntity(user, HttpStatus.OK);
+        return new ResponseEntity(new BaseResponse(HttpStatus.OK.toString(), "Customer Saved", user), HttpStatus.OK);
     }
 }

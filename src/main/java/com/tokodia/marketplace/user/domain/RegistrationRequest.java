@@ -1,8 +1,10 @@
 package com.tokodia.marketplace.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sun.istack.NotNull;
 import lombok.*;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -12,21 +14,27 @@ import lombok.*;
 @ToString
 @Builder
 public class RegistrationRequest {
-    @NotNull
+
+    @NotEmpty
+    @Size(max = 100)
     private String email;
 
-    @NotNull
+    @NotEmpty
+    @Size(max = 50)
     private String password;
 
-    @NotNull
+    @NotEmpty
+    @Size(max = 50)
     private String password2;
 
-    @NotNull
+    @NotEmpty
+    @Size(max = 20, min = 9)
     private String phone;
 
-    @NotNull
+    @NotEmpty
+    @Size(max = 50)
     private String firstName;
 
-    @NotNull
+    @Size(max = 50)
     private String lastName;
 }
