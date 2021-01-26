@@ -19,9 +19,9 @@ public class UserController {
 
     final RegistrationService registrationService;
 
-    @PostMapping("/registration/customer")
+    @PostMapping("/registration")
     public ResponseEntity registration(@RequestBody RegistrationRequest request) {
         User user = registrationService.customerRegistration(request);
-        return new ResponseEntity(new BaseResponse(HttpStatus.OK.toString(), "Customer Saved", user), HttpStatus.OK);
+        return new ResponseEntity(new BaseResponse(HttpStatus.OK.toString(), "User Saved", user), HttpStatus.OK);
     }
 }

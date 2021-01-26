@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/marketplace?useSSL=false
+    url: jdbc:mysql://localhost:3306/kasir?useSSL=false
     username: root
     password: password
   jpa:

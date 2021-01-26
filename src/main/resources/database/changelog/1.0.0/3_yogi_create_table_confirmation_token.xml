@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="3_1_CREATE_TABLE_CONFIRMATION_TOKEN" author="YOGI">
+        <createTable tableName="CONFIRMATION_TOKEN">
+            <column name="ID" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="USER_ID" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOKEN" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXPIRED_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONFIRMED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3_2_ADD_FK_USER_ID_TABLE_CONFIRMATION_TOKEN" author="YOGI">
+        <addForeignKeyConstraint baseTableName="CONFIRMATION_TOKEN"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_CONFIRMATION_TOKEN_AND_USER_ON_USER_ID"
+                                 referencedTableName="USER"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

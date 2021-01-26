@@ -19,7 +19,7 @@
     <changeSet id="1_2_INSERT_DATA_TABLE_USER_ROLE" author="YOGI">
         <sql>
             INSERT INTO USER_ROLE VALUES
-            (1, "ADMIN"), (2, "SELLER"), (3, "CUSTOMER");
+            (1, "OWNER"), (2, "ADMIN"), (3, "KASIR");
         </sql>
 
         <rollback>
