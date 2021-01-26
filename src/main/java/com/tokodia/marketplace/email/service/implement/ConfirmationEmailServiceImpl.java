@@ -19,7 +19,6 @@ public class ConfirmationEmailServiceImpl implements ConfirmationEmailService {
     public void sendConfirmationToken(User user) {
 
         String token = UUID.randomUUID().toString();
-        int tokenLen = UUID.randomUUID().toString().length();
 
         ConfirmationToken confirmationToken = new ConfirmationToken(
                 user, token, LocalDateTime.now(), LocalDateTime.now().plusDays(1L)
